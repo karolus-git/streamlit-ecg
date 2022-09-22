@@ -47,6 +47,10 @@ The streamlit app is launch with the following command
 
 Open your web browser and go to `<LOCALHOST>:<8501>` to see the streamlit app.
 
+## Model
+
+    Score : 0.965
+
 ## Credits
 
 The database can be found on Physionet and is avaiable under a Open Data Commons Attribution License
