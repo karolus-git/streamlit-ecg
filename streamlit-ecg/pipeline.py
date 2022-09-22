@@ -21,14 +21,14 @@ CACHE = os.getenv("CACHE")
 def load():
     return joblib.load(Path(CACHE,'pipe.pkl'))
 
-def save(pip):
+def save(pipe):
 
     if not Path(CACHE).exists():
         Path(CACHE).mkdir()
 
     joblib.dump(pipe, Path(CACHE,'pipe.pkl'), compress = 1)
 
-def build(df, features=[], target="", test_size=0.3):
+def build(df, features=[], target="", test_size=0.3, autosave=True):
     
 
     ml_model = SVC()
@@ -46,5 +46,10 @@ def build(df, features=[], target="", test_size=0.3):
     )
 
     pipe.fit(X_train, y_train)
+
+    score = pipe.score(X_test, y_test)
+
+    if autosave:
+        save(pipe)
 
     return pipe
