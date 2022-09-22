@@ -29,7 +29,7 @@ except Exception as exce:
     df = preprocess.build_dataset(autosave=True)
 
 # Shuffle it !
-df = df.sample(frac=1)
+#df = df.sample(frac=1)
 
 # Extract the symbols (for the legends)
 symbols = df.symbol.unique().tolist()
